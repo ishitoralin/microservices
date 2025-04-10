@@ -1,0 +1,20 @@
+services:
+  user-service:
+    build: ./user_service
+    ports:
+      - "8001:8000"
+    networks:
+      - backend
+
+  order-service:
+    build: ./order_service
+    ports:
+      - "8002:8000"
+    networks:
+      - backend
+    depends_on:
+      - user-service
+
+networks:
+  backend:
+    driver: bridge
