@@ -4,6 +4,14 @@ app = FastAPI()
 
 USER_SERVICE_URL = "http://user-service:8000"
 
-@app.get("/user")
+@app.get("")
 def hello():
-    return {"message": "Hello from User Service!"}
+    return {"message": "user root!"}
+
+@app.get("/hello")
+def hello():
+    return {"message": "user Hello!"}
+
+@app.get("/world")
+def hello():
+    return {"message": "user world!"}
